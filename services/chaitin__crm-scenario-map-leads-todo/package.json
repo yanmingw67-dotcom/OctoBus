@@ -1,0 +1,15 @@
+{
+  "name": "crm-scenario-map-leads-todo",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "crm-scenario-map-leads-todo": "bin/crm-scenario-map-leads-todo.js"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "dependencies": {
+    "@chaitin-ai/octobus-sdk": "^0.6.0"
+  }
+}

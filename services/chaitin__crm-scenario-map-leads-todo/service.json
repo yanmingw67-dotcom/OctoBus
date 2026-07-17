@@ -1,0 +1,29 @@
+{
+  "schema": "chaitin.octobus.service.v1",
+  "name": "crm-scenario-map-leads-todo",
+  "displayName": "CRM Scenario Map Leads Todo",
+  "description": "Create a lead-level CRM todo by associating a customer to a scenario map opportunity scenario.",
+  "runtime": {
+    "mode": "long-running"
+  },
+  "proto": {
+    "roots": [
+      "proto"
+    ],
+    "files": [
+      "proto/crm_scenario_map_leads_todo.proto"
+    ]
+  },
+  "configSchema": "config.schema.json",
+  "secretSchema": "secret.schema.json",
+  "sdk": {
+    "cli": {
+      "commands": {
+        "Chaitin_CRM_ScenarioMapLeadsTodo.CrmScenarioMapLeadsTodo/CreateScenarioLeadTodo": {
+          "name": "create-scenario-lead-todo",
+          "description": "Associate a customer to a CRM scenario and create a todo on the generated lead."
+        }
+      }
+    }
+  }
+}

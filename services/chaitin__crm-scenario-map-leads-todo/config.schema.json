@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "baseUrl": {
+      "type": "string",
+      "format": "uri",
+      "default": "http://api.in.chaitin.net/crm/query"
+    },
+    "defaultScenarioType": {
+      "type": "string",
+      "default": "first_team_self"
+    },
+    "defaultGroupId": {
+      "type": "string",
+      "default": "645da87f24c86c2b8ef1f71f"
+    },
+    "leadPollAttempts": {
+      "type": "integer",
+      "minimum": 1,
+      "default": 5
+    },
+    "leadPollIntervalMs": {
+      "type": "integer",
+      "minimum": 1,
+      "default": 2000
+    }
+  }
+}

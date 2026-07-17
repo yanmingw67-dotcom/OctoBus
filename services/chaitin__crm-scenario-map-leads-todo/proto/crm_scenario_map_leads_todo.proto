@@ -1,0 +1,84 @@
+syntax = "proto3";
+
+package Chaitin_CRM_ScenarioMapLeadsTodo;
+
+option go_package = "miner/grpc-service/Chaitin_CRM_ScenarioMapLeadsTodo";
+
+// CRM 场景地图线索待办服务。
+// 用于把客户关联到机会场景，并在自动生成的线索上创建待办。
+service CrmScenarioMapLeadsTodo {
+  // 一键创建场景线索待办。
+  rpc CreateScenarioLeadTodo(CreateScenarioLeadTodoRequest) returns (CreateScenarioLeadTodoResponse) {}
+}
+
+message CreateScenarioLeadTodoRequest {
+  // 场景 ID。提供后优先使用，跳过场景关键字搜索。
+  string scenario_id = 1;
+
+  // 场景关键字，例如 "ADP智能体开发"。
+  string scenario_keyword = 2;
+
+  // 客户名称。必须唯一命中 CRM 客户。
+  string customer_name = 3;
+
+  // 待办名称。
+  string todo_name = 4;
+
+  // 截止日期。支持 YYYY-MM-DD，服务会转换为 00:00:00+08:00。
+  string deadline = 5;
+
+  // 处理人用户 ID。提供后优先使用。
+  string processor_user_id = 6;
+
+  // 处理人用户名，例如 yanming.wang。
+  string processor_username = 7;
+
+  // 处理人姓名。没有用户名时按姓名查询。
+  string processor_name = 8;
+
+  // 使用客户负责人作为待办处理人。
+  bool use_customer_owner = 9;
+}
+
+message CreateScenarioLeadTodoResponse {
+  CrmScenario scenario = 1;
+  CrmCustomer customer = 2;
+  CrmLead lead = 3;
+  CrmUser processor = 4;
+  CrmTodo todo = 5;
+  string deadline = 6;
+  bool verified = 7;
+}
+
+message CrmScenario {
+  string id = 1;
+  string name = 2;
+  string type = 3;
+  string status = 4;
+}
+
+message CrmCustomer {
+  string id = 1;
+  string name = 2;
+  CrmUser owner = 3;
+}
+
+message CrmLead {
+  string id = 1;
+  string client_name = 2;
+  string type = 3;
+}
+
+message CrmUser {
+  string id = 1;
+  string name = 2;
+  string username = 3;
+}
+
+message CrmTodo {
+  string id = 1;
+  string name = 2;
+  string type = 3;
+  string deadline = 4;
+  string relation_id = 5;
+}

@@ -25,6 +25,10 @@ const services = {
     entryFile: "../chaitin__cloudatlas/bin/cloudatlas.js",
     serviceModule: "../chaitin__cloudatlas/src/service.js",
   },
+  "crm-scenario-map-leads-todo": {
+    entryFile: "../chaitin__crm-scenario-map-leads-todo/bin/crm-scenario-map-leads-todo.js",
+    serviceModule: "../chaitin__crm-scenario-map-leads-todo/src/service.js",
+  },
   "das-gateway-v3": {
     entryFile: "../das__gateway_v3/bin/das-gateway-v3.js",
     serviceModule: "../das__gateway_v3/src/service.js",
